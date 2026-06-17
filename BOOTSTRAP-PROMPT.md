@@ -1,14 +1,23 @@
 # Bootstrap prompt — paste into the new project's FIRST Claude session
 
+Self-contained: you only need this block and the GitHub URL — it clones the kit itself.
 Copy everything in the fenced block below into Claude Code, running in the **new project's
-root**. It installs a portable operating method and then adapts it to *this* codebase. It
-does not carry any other project's domain context — it builds the project layer fresh from
-what it finds here.
+root**. It fetches the portable operating method, installs it, and adapts it to *this*
+codebase. It does not carry any other project's domain context — it builds the project
+layer fresh from what it finds here.
 
 ```
-Adopt a portable operating method for this project and install it. The method lives at
-~/claude-operating-kit/ (project-agnostic). Do the following, pausing for my confirmation
-before any write you're unsure about:
+Adopt a portable operating method for this project and install it from GitHub. Pause for my
+confirmation before any write you're unsure about.
+
+0. FETCH the kit. If ~/claude-operating-kit/operating-principles is not already present,
+   get the kit:
+     git clone https://github.com/Sharrmavishal/operating-kit ~/claude-operating-kit
+   If that path already exists, instead run: git -C ~/claude-operating-kit pull --ff-only
+   (If git clone isn't available, fall back to: degit / downloading the repo tarball from
+   https://github.com/Sharrmavishal/operating-kit to ~/claude-operating-kit.)
+   Confirm the files exist: ~/claude-operating-kit/docs/claude/operating-principles.md and
+   ~/claude-operating-kit/memory-seeds/.
 
 1. READ the method. Read ~/claude-operating-kit/docs/claude/operating-principles.md in
    full. From now on, operate by it: builder + strategic-vetting partner; permission
