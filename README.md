@@ -62,4 +62,6 @@ stripped on purpose: the kit carries the *transferable rule*, never the project 
 it. No domain logic, infra, hosts, customer data, or business specifics are included.
 
 Licensed under the [MIT License](LICENSE) — reuse, adapt, and redistribute freely.
+Adding to the kit? See [CONTRIBUTING.md](CONTRIBUTING.md) — keep every addition IP-stripped
+and concrete (the two bars), in the `trap → why-silent → rule` shape.
 
