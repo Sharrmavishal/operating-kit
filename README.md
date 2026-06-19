@@ -1,5 +1,7 @@
 # Claude Operating Kit
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A portable, project-agnostic distillation of a disciplined "builder + strategic-vetting
 partner" operating mode (the **persona**) and a critical-thinking / reframe-first
 working style (the **OOB — out-of-box — approach**). It carries the *method*, not any
