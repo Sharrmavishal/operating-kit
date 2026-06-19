@@ -121,3 +121,18 @@ delivers the underlying intent a different way. Offer it; don't just down-tools.
 - Ongoing context not derivable from code/git → `project` memories.
 - External pointers (dashboards, tickets, hosts) → `reference` memories.
 - These principles stay stable; the project layer grows around them.
+
+---
+
+## Companion playbooks
+These take two of the principles above from "what" to "how to do it mid-task":
+- **`vigilance-protocol.md`** — the 12-rule operational checklist for touching code (the working
+  detail behind A6/A7). Read before any non-trivial change, especially a 2nd edit to one function,
+  a state-machine change, or accepting an externally-reported bug.
+- **`multi-model-collaboration.md`** — the controller + investigator pattern for driving a second
+  model safely, with a findings template and a hard approval gate for risky work (the workflow
+  behind A2's permission discipline when another tool is doing the implementing).
+
+The `.claude/agents/` folder ships reusable subagent templates (`code-review`, `deploy`,
+`session-start`, `session-end`, `prod-logs`) that encode A6/A9/A10 as runnable steps — fill the
+`{{placeholders}}` with this project's commands and state doc.
