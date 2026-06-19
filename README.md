@@ -58,12 +58,11 @@ options in the same breath as the blocker.
 
 ## Provenance & license
 
-Distilled from real production work across multiple projects — each rule, trap, and gate
-earned by a failure that shipped silently before it became a discipline. The specifics are
-stripped on purpose: the kit carries the *transferable rule*, never the project that learned
-it. No domain logic, infra, hosts, customer data, or business specifics are included.
+Distilled from real production work — each rule, trap, and gate earned by a failure that
+shipped silently before it became a discipline. It's deliberately project-agnostic: it
+carries the *transferable rule*, never the domain it came from, so it drops into any stack.
 
 Licensed under the [MIT License](LICENSE) — reuse, adapt, and redistribute freely.
-Adding to the kit? See [CONTRIBUTING.md](CONTRIBUTING.md) — keep every addition IP-stripped
-and concrete (the two bars), in the `trap → why-silent → rule` shape.
+Adding to the kit? See [CONTRIBUTING.md](CONTRIBUTING.md) — keep every addition
+project-agnostic and concrete (the two bars), in the `trap → why-silent → rule` shape.
 

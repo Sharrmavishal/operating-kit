@@ -6,7 +6,7 @@ vague advice or a data leak.
 
 ## The two bars (non-negotiable)
 
-1. **IP-stripped.** Nothing identifying any real project may ship: no product/company/
+1. **Project-agnostic.** Nothing identifying any real project may ship: no product/company/
    competitor names, domains, hosts, IPs, secrets, customer data, schema/field names, or
    business specifics. Abstract the incident to the *rule*. "The project that learned it is
    irrelevant" — only the lesson travels.
