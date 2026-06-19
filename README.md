@@ -8,6 +8,8 @@ working style (the **OOB — out-of-box — approach**). It carries the *method*
 one project's domain context. Drop it into a new project and let that project's Claude
 adopt it and grow its own specifics on top.
 
+**Usage:** in your project's Claude Code session, paste — *“Clone https://github.com/Sharrmavishal/operating-kit and install it per its BOOTSTRAP-PROMPT.md, adapting to this repo.”*
+
 ## What's in here
 
 | File | What it is | Where it goes in the new project |
