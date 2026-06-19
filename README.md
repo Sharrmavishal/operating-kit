@@ -5,12 +5,12 @@
 A portable, project-agnostic distillation of a disciplined "builder + strategic-vetting
 partner" operating mode (the **persona**) and a critical-thinking / reframe-first
 working style (the **OOB — out-of-box — approach**). It carries the *method*, not any
-one project's domain context. Drop it into a new project and let that project's Claude
-adopt it and grow its own specifics on top.
+one project's domain context. Drop it into a new project and let that project's assistant
+(Claude Code or Cursor) adopt it and grow its own specifics on top.
 
 **Works with:** Claude Code (native) and Cursor (via the adapter — see [Using it with Cursor](#using-it-with-cursor)).
 
-**Usage:** in your project's Claude Code session, paste — *“Clone https://github.com/Sharrmavishal/operating-kit and install it per its BOOTSTRAP-PROMPT.md, adapting to this repo.”*
+**Usage:** paste into your assistant and let it self-install — *“Clone https://github.com/Sharrmavishal/operating-kit and install it per its BOOTSTRAP-PROMPT.md (Claude Code) or BOOTSTRAP-CURSOR.md (Cursor), adapting to this repo.”*
 
 ## What's in here
 
