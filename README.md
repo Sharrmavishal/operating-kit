@@ -8,6 +8,8 @@ working style (the **OOB — out-of-box — approach**). It carries the *method*
 one project's domain context. Drop it into a new project and let that project's Claude
 adopt it and grow its own specifics on top.
 
+**Works with:** Claude Code (native) and Cursor (via the adapter — see [Using it with Cursor](#using-it-with-cursor)).
+
 **Usage:** in your project's Claude Code session, paste — *“Clone https://github.com/Sharrmavishal/operating-kit and install it per its BOOTSTRAP-PROMPT.md, adapting to this repo.”*
 
 ## What's in here
@@ -22,6 +24,9 @@ adopt it and grow its own specifics on top.
 | `docs/claude/field-notes.md` | Catalog of failure modes that ship *silently* (migrations, gated features, build caches, release pointers): trap → why it's silent → the rule. | `docs/claude/` |
 | `docs/claude/incident-response.md` | The recovery half — when prod breaks: stabilize → confirm recovery point → recover → verify → root-cause → mechanical fix → postmortem. | `docs/claude/` |
 | `.claude/agents/` | Reusable subagent templates — `code-review`, `deploy`, `session-start`, `session-end`, `prod-logs` — with `{{placeholders}}`. | project root → `.claude/agents/` |
+| `.cursor/rules/` | Cursor adapter — `operating-method` + `project-context` (always-on), `code-change` (auto-attached), `ship-and-recover` (`.mdc` rules). | project root → `.cursor/rules/` |
+| `BOOTSTRAP-CURSOR.md` | Cursor counterpart of the bootstrap — paste into the Cursor Agent. | (paste, don't copy) |
+| `docs/cursor-adapter.md` | The Claude Code ↔ Cursor mapping + what changes/degrades. | `docs/` |
 | `memory-seeds/` | Generic, reusable "feedback" memories + an index. | the project's Claude memory dir |
 
 ## Quick start (bootstrap — recommended)
@@ -53,6 +58,19 @@ Copy `CLAUDE.md` + everything under `docs/claude/` into the new repo, fill the `
 copy `.claude/agents/*` into the project's `.claude/agents/`, and copy `memory-seeds/*` into the
 project's Claude memory directory (the bootstrap prompt explains where that is). Then fill each
 agent template's `{{placeholders}}` with the project's real commands and state doc.
+
+## Using it with Cursor
+
+The **method** is tool-neutral; the packaging ports via a small adapter. Paste
+[`BOOTSTRAP-CURSOR.md`](BOOTSTRAP-CURSOR.md) into the Cursor Agent (it self-clones and installs),
+or copy `docs/claude/*` + `.cursor/rules/*` in by hand. The kit ships ready-to-use
+`.cursor/rules/*.mdc` (`operating-method` + `project-context` always-on, `code-change`
+auto-attached, `ship-and-recover` on demand) that reference the same playbooks via `@path`.
+
+You keep ~90% — persona, OOB, vigilance, field notes, incident response, the gates — applied
+automatically. Two things degrade: Cursor can't *structurally* restrict a delegated agent's tools
+(so least-privilege weakens from a wall to an instruction), and automatic memory recall becomes a
+rule. Full mapping + caveats: [`docs/cursor-adapter.md`](docs/cursor-adapter.md).
 
 ## The one-line philosophy
 

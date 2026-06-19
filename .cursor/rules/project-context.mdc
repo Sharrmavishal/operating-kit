@@ -1,0 +1,38 @@
+---
+description: This project's specifics — stack, conventions, locked decisions, open work. Always on.
+globs:
+alwaysApply: true
+---
+
+# {{PROJECT_NAME}} — project context
+
+> Template. Fill every `{{PLACEHOLDER}}` from THIS codebase (the bootstrap does this by
+> exploring the repo). The stable *method* is in @.cursor/rules/operating-method.mdc.
+
+## What this project is
+{{One-paragraph description: what it does, who it's for, current state. Replace this block.}}
+
+## Stack
+{{Languages, frameworks, DB, infra, key services. Where secrets live (and that they're never
+committed). Any non-obvious build/deploy step.}}
+
+## Coding standards
+{{Project conventions. Examples: error-handling norms; no hardcoded secrets + maintain
+.env.example; destructive ops only via the approved safe path; one logical change per commit;
+honest user-facing positioning.}}
+
+## Pre-ship gates
+{{Each gate = a live check returning a count with an explicit pass condition. Seed:
+post-change live curl/query; consumer-route audit after an API/shape change; verify any
+hardcoded threshold against a live distribution before shipping.}}
+
+## Locked decisions — do not relitigate
+**Rule:** if a new idea conflicts with a decision below, report it as a *deferred option* — do
+not implement by default. "Looks ready" is not the trigger; the documented condition must be met.
+- _(none yet)_
+
+## Open work
+- _(none yet)_
+
+## Quick reference
+{{Common commands: build, test, run, inspect data, deploy.}}
