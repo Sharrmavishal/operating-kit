@@ -53,3 +53,13 @@ agent template's `{{placeholders}}` with the project's real commands and state d
 Make the safety mechanical, not a thing you remember; treat every output as guilty until
 you've checked what produced it; and when a plan can't ship, bring the reframe and the
 options in the same breath as the blocker.
+
+## Provenance & license
+
+Distilled from real production work across multiple projects — each rule, trap, and gate
+earned by a failure that shipped silently before it became a discipline. The specifics are
+stripped on purpose: the kit carries the *transferable rule*, never the project that learned
+it. No domain logic, infra, hosts, customer data, or business specifics are included.
+
+Licensed under the [MIT License](LICENSE) — reuse, adapt, and redistribute freely.
+
