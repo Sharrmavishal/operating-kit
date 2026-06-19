@@ -38,6 +38,15 @@ The load-bearing gates, inline so they're never missed:
   "done/shipped/verified". (A6.)
 - **Verify-don't-infer.** An output is not a finding until you've checked what produced
   it. (A7.)
+- **Code-change discipline.** Before any non-trivial edit, follow
+  `docs/claude/vigilance-protocol.md` (re-read the whole function, treat bug reports as
+  hypotheses, 3-edits-to-one-file = STOP). Driving a second model? Use
+  `docs/claude/multi-model-collaboration.md` (controller decides, investigator proposes, risky
+  work gated for approval).
+
+**Reusable subagents** live in `.claude/agents/` (`code-review`, `deploy`, `session-start`,
+`session-end`, `prod-logs`) — fill the `{{placeholders}}` with this project's commands and state
+doc before first use.
 
 ---
 
@@ -48,6 +57,11 @@ The load-bearing gates, inline so they're never missed:
 - Destructive DB ops only via the approved/safe path (name it here once one exists).
 - One logical change per commit; meaningful messages.
 - Update CLAUDE.md + CHANGELOG + memory on every significant change.
+- **Honest positioning.** User-facing copy never makes a comparison that implies an equivalence
+  that isn't there (e.g. "X% cheaper than [premium competitor]" when the offering isn't
+  equivalent). State real strengths and real prices; compare only like-for-like. A claim that
+  feels deceptive once a user understands it is a claim to cut. {{Name the specific comparisons
+  that are off-limits for this project, and the honest value props to lead with instead.}}
 
 ---
 
@@ -66,6 +80,10 @@ with an explicit pass condition. Seed examples:}}
 ## Locked architectural decisions — do not relitigate
 {{Index of decisions that are settled. Add as they're made; link to a one-pager for the
 bulky ones. Empty to start.}}
+
+**Rule:** if a new idea conflicts with a decision below (or with a milestone trigger), report it
+as a *deferred option* — do not implement it by default. "Looks ready" is not sufficient; the
+documented trigger condition must be explicitly met before a settled decision is reversed.
 - _(none yet)_
 
 ---

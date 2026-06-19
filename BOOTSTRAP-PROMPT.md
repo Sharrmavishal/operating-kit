@@ -29,8 +29,18 @@ confirmation before any write you're unsure about.
    vs-evidence walk before any "done/shipped/verified"; verify-don't-infer (an output is
    not a finding until you've checked what produced it).
 
-2. INSTALL the docs. Copy ~/claude-operating-kit/docs/claude/operating-principles.md into
-   this repo at docs/claude/operating-principles.md (create dirs as needed).
+2. INSTALL the docs + agent templates. Copy these into this repo (create dirs as needed):
+   - ~/claude-operating-kit/docs/claude/operating-principles.md → docs/claude/
+   - ~/claude-operating-kit/docs/claude/vigilance-protocol.md → docs/claude/ (the 12-rule
+     checklist for touching code — follow it before any non-trivial edit)
+   - ~/claude-operating-kit/docs/claude/multi-model-collaboration.md → docs/claude/ (use when
+     a second model is investigating/implementing)
+   - ~/claude-operating-kit/docs/claude/field-notes.md → docs/claude/ (failure modes that ship
+     silently — scan before any deploy/migration/feature-gate/build-trust)
+   - ~/claude-operating-kit/.claude/agents/*.md → .claude/agents/ (code-review, deploy,
+     session-start, session-end, prod-logs). Leave the {{placeholders}} for now — fill them in
+     step 3 once you know this project's commands and state doc, and list any you can't fill as
+     a question for me.
 
 3. DRAFT this project's CLAUDE.md. Use ~/claude-operating-kit/CLAUDE.md as the template.
    Explore THIS codebase first (read the README, package/manifest files, the dir tree,

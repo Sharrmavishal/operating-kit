@@ -13,7 +13,11 @@ adopt it and grow its own specifics on top.
 | `BOOTSTRAP-PROMPT.md` | Paste into the new project's **first** Claude session. Self-installs the rest. | (paste, don't copy) |
 | `CLAUDE.md` | Generic project-context + operating-mode template with `{{PLACEHOLDERS}}`. | project root → `CLAUDE.md` |
 | `docs/claude/operating-principles.md` | The full method: persona rules + OOB approach + the gates. | `docs/claude/` |
-| `memory-seeds/` | ~8 generic, reusable "feedback" memories + an index. | the project's Claude memory dir |
+| `docs/claude/vigilance-protocol.md` | The 12-rule operational checklist for touching code (the *how* behind the gates). | `docs/claude/` |
+| `docs/claude/multi-model-collaboration.md` | Controller + investigator pattern for driving a second model safely (findings template + approval gate). | `docs/claude/` |
+| `docs/claude/field-notes.md` | Catalog of failure modes that ship *silently* (migrations, gated features, build caches, release pointers): trap → why it's silent → the rule. | `docs/claude/` |
+| `.claude/agents/` | Reusable subagent templates — `code-review`, `deploy`, `session-start`, `session-end`, `prod-logs` — with `{{placeholders}}`. | project root → `.claude/agents/` |
+| `memory-seeds/` | Generic, reusable "feedback" memories + an index. | the project's Claude memory dir |
 
 ## How to use it (two ways)
 
