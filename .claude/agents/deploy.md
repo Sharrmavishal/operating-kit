@@ -46,8 +46,13 @@ Capture the new revision / version identifier from the output.
 curl -s {{HEALTH_OR_VERSION_ENDPOINT}}
 ```
 Confirm the response is healthy **and reflects what you just shipped** (version/revision matches).
-If the live system doesn't show the new build, the deploy is not done — investigate, don't report
-success.
+
+This is the step people skip, and it's the one that catches the silent failures: a deploy command
+that returns success while the platform **keeps serving the previous revision** (the new one failed
+its health check and was held back), a **staged rollout** routing only a fraction of traffic to the
+new build, or a green deploy of an image that **crash-loops on first real request**. "Exited 0" and
+"live and serving the new code" are different claims — confirm the second, not the first. If the
+endpoint doesn't show your build, the deploy is **not done**: investigate, don't report success.
 
 ## What to report
 - Tests: X/X passed

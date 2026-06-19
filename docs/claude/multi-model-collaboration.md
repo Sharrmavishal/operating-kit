@@ -71,21 +71,28 @@ logs vs. code vs. inference; report multiple issues as distinct findings.
 
 ## When to pull in the context-free reviewer (second opinion)
 
-Proactively suggest a cross-model second opinion — don't wait to be asked — at these moments:
+A reviewer with no repo access has a precise capability **asymmetry** — use it for what it's good
+at, distrust it on what it can't see:
+- **Good at:** spotting an assumption you normalized over a long session, naming a risk you've
+  stopped seeing, reframing a "build now vs. wait" call you're anchored on. No sunk-cost, no
+  session momentum.
+- **Bad at:** anything requiring repo truth. It will confidently *invent* a constraint, a column,
+  or an API that doesn't exist — because it's reasoning from priors, not your code. Treat every
+  concrete claim it makes as a hypothesis to check against the code (vigilance-protocol rule 5),
+  never as fact.
 
-1. **After a major analysis** when a new plan emerges from it. Fresh eyes surface blind spots.
-2. **Before committing to a new sprint / large piece of work** — a cheap gate before spending
-   build time.
-3. **After any significant architectural decision** — routing, protocol, schema. A model that
-   didn't live through the design may spot a risk you normalized.
-4. **At scale / milestone thresholds** — the points where prior trade-offs deserve re-examination.
-5. **On a complex "build now vs. wait" trade-off** — a model without your anchoring bias frames
-   it differently.
-6. **After a production incident** — second opinion on the failure mode before committing to a fix.
+So the rule is: pull it in **at decision boundaries, not for fact-finding** — the moments where
+fresh framing beats local knowledge:
+- a new plan has emerged from an analysis, before you commit build time to it;
+- a significant architectural decision is made (routing, protocol, schema);
+- you've crossed a scale/milestone threshold where old trade-offs deserve re-examination;
+- right after a production incident, on the failure mode, before you commit to a fix.
 
-**Why it works:** it prevents tunnel vision on your own assumptions *and* filters premature or
-wrong external advice — because the controller has already formed a view to test the second
-opinion against, rather than adopting it blind.
+**Why it works — and the failure it prevents:** the *value* is that the controller has already
+formed a view, so the second opinion is a stress-test, not a crutch. The *failure* it guards
+against is the opposite — adopting the reviewer's framing blind, which launds a context-free guess
+into a decision. Both directions of that asymmetry matter: take its framing seriously, take its
+facts skeptically.
 
 ---
 
