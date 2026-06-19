@@ -38,7 +38,7 @@ paste it once and Claude fetches the kit, installs it, and adapts it to *your* c
 2. **Open** [`BOOTSTRAP-PROMPT.md`](BOOTSTRAP-PROMPT.md) and **copy the entire fenced block** inside it.
 3. **Paste that block as your first message** to Claude in the project.
 4. **Let it run.** It will, in order:
-   - clone this kit to `~/claude-operating-kit` (or `git pull` if already present);
+   - clone this kit to `~/operating-kit` (or `git pull` if already present);
    - read `docs/claude/operating-principles.md` and adopt the operating method;
    - install the method docs (`operating-principles`, `vigilance-protocol`,
      `multi-model-collaboration`, `field-notes`, `incident-response`) and the `.claude/agents/`

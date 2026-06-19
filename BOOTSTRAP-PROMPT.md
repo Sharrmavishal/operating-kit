@@ -10,16 +10,16 @@ layer fresh from what it finds here.
 Adopt a portable operating method for this project and install it from GitHub. Pause for my
 confirmation before any write you're unsure about.
 
-0. FETCH the kit. If ~/claude-operating-kit/operating-principles is not already present,
+0. FETCH the kit. If ~/operating-kit/operating-principles is not already present,
    get the kit:
-     git clone https://github.com/Sharrmavishal/operating-kit ~/claude-operating-kit
-   If that path already exists, instead run: git -C ~/claude-operating-kit pull --ff-only
+     git clone https://github.com/Sharrmavishal/operating-kit ~/operating-kit
+   If that path already exists, instead run: git -C ~/operating-kit pull --ff-only
    (If git clone isn't available, fall back to: degit / downloading the repo tarball from
-   https://github.com/Sharrmavishal/operating-kit to ~/claude-operating-kit.)
-   Confirm the files exist: ~/claude-operating-kit/docs/claude/operating-principles.md and
-   ~/claude-operating-kit/memory-seeds/.
+   https://github.com/Sharrmavishal/operating-kit to ~/operating-kit.)
+   Confirm the files exist: ~/operating-kit/docs/claude/operating-principles.md and
+   ~/operating-kit/memory-seeds/.
 
-1. READ the method. Read ~/claude-operating-kit/docs/claude/operating-principles.md in
+1. READ the method. Read ~/operating-kit/docs/claude/operating-principles.md in
    full. From now on, operate by it: builder + strategic-vetting partner; permission
    discipline (read-only runs free, pause-and-propose before writes/deploys/irreversible
    shared-state mutations); the production-mutation pre-flight (Backup/Ownership/Blast-
@@ -30,21 +30,21 @@ confirmation before any write you're unsure about.
    not a finding until you've checked what produced it).
 
 2. INSTALL the docs + agent templates. Copy these into this repo (create dirs as needed):
-   - ~/claude-operating-kit/docs/claude/operating-principles.md → docs/claude/
-   - ~/claude-operating-kit/docs/claude/vigilance-protocol.md → docs/claude/ (the 12-rule
+   - ~/operating-kit/docs/claude/operating-principles.md → docs/claude/
+   - ~/operating-kit/docs/claude/vigilance-protocol.md → docs/claude/ (the 12-rule
      checklist for touching code; follow it before any non-trivial edit)
-   - ~/claude-operating-kit/docs/claude/multi-model-collaboration.md → docs/claude/ (use when
+   - ~/operating-kit/docs/claude/multi-model-collaboration.md → docs/claude/ (use when
      a second model is investigating/implementing)
-   - ~/claude-operating-kit/docs/claude/field-notes.md → docs/claude/ (failure modes that ship
+   - ~/operating-kit/docs/claude/field-notes.md → docs/claude/ (failure modes that ship
      silently; scan before any deploy/migration/feature-gate/build-trust)
-   - ~/claude-operating-kit/docs/claude/incident-response.md → docs/claude/ (the recovery
+   - ~/operating-kit/docs/claude/incident-response.md → docs/claude/ (the recovery
      playbook; read the moment prod breaks)
-   - ~/claude-operating-kit/.claude/agents/*.md → .claude/agents/ (code-review, deploy,
+   - ~/operating-kit/.claude/agents/*.md → .claude/agents/ (code-review, deploy,
      session-start, session-end, prod-logs). Leave the {{placeholders}} for now; fill them in
      step 3 once you know this project's commands and state doc, and list any you can't fill as
      a question for me.
 
-3. DRAFT this project's CLAUDE.md. Use ~/claude-operating-kit/CLAUDE.md as the template.
+3. DRAFT this project's CLAUDE.md. Use ~/operating-kit/CLAUDE.md as the template.
    Explore THIS codebase first (read the README, package/manifest files, the dir tree,
    the main entry points, the test setup, any deploy/CI config) and fill every
    {{PLACEHOLDER}} from what you actually find here: stack, what the project is, build/
@@ -53,7 +53,7 @@ confirmation before any write you're unsure about.
    as a question for me rather than guessing. Write it to ./CLAUDE.md and show me a summary
    of what you filled in + your open questions.
 
-4. SEED the memory. Write each file in ~/claude-operating-kit/memory-seeds/ into this
+4. SEED the memory. Write each file in ~/operating-kit/memory-seeds/ into this
    project's Claude memory directory (the same directory your MEMORY.md lives in; it's
    referenced in your session context). Merge the seed MEMORY.md index lines into the
    existing MEMORY.md (don't overwrite anything already there). These are the portable
