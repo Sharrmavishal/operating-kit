@@ -35,6 +35,8 @@ confirmation before any write you're unsure about.
      checklist for touching code — follow it before any non-trivial edit)
    - ~/claude-operating-kit/docs/claude/multi-model-collaboration.md → docs/claude/ (use when
      a second model is investigating/implementing)
+   - ~/claude-operating-kit/docs/claude/field-notes.md → docs/claude/ (failure modes that ship
+     silently — scan before any deploy/migration/feature-gate/build-trust)
    - ~/claude-operating-kit/.claude/agents/*.md → .claude/agents/ (code-review, deploy,
      session-start, session-end, prod-logs). Leave the {{placeholders}} for now — fill them in
      step 3 once you know this project's commands and state doc, and list any you can't fill as

@@ -132,6 +132,10 @@ These take two of the principles above from "what" to "how to do it mid-task":
 - **`multi-model-collaboration.md`** — the controller + investigator pattern for driving a second
   model safely, with a findings template and a hard approval gate for risky work (the workflow
   behind A2's permission discipline when another tool is doing the implementing).
+- **`field-notes.md`** — a catalog of failure modes that ship *silently* (a committed migration
+  that never runs, a gated-off feature whose schema is still live, a build cache serving stale
+  artifacts, a release pointer moved ahead of its artifact). Each is `trap → why it's silent →
+  the general rule`. Scan it before you deploy, migrate, gate a feature, or trust a build artifact.
 
 The `.claude/agents/` folder ships reusable subagent templates (`code-review`, `deploy`,
 `session-start`, `session-end`, `prod-logs`) that encode A6/A9/A10 as runnable steps — fill the
