@@ -19,18 +19,34 @@ adopt it and grow its own specifics on top.
 | `.claude/agents/` | Reusable subagent templates — `code-review`, `deploy`, `session-start`, `session-end`, `prod-logs` — with `{{placeholders}}`. | project root → `.claude/agents/` |
 | `memory-seeds/` | Generic, reusable "feedback" memories + an index. | the project's Claude memory dir |
 
-## How to use it (two ways)
+## Quick start (bootstrap — recommended)
 
-**Fast path (recommended):** open the new project in Claude, paste the contents of
-`BOOTSTRAP-PROMPT.md`. It's self-contained from the GitHub URL — it first clones this kit
-(`git clone https://github.com/Sharrmavishal/operating-kit ~/claude-operating-kit`), then
-copies `operating-principles.md` in, writes the seed memories into that project's memory
-dir, explores the codebase, and drafts a project-specific `CLAUDE.md` from the template —
-then asks you to confirm the specifics. You only need the prompt block + the URL.
+You don't clone or copy anything by hand. The `BOOTSTRAP-PROMPT.md` block is self-installing:
+paste it once and Claude fetches the kit, installs it, and adapts it to *your* codebase.
 
-**Manual path:** copy `CLAUDE.md` + `docs/claude/operating-principles.md` into the new
-repo, fill the `{{PLACEHOLDERS}}`, and copy `memory-seeds/*` into the project's memory
-directory (the bootstrap prompt explains where that is).
+1. **Open your target project in Claude Code** (the new repo's root must be the working dir).
+2. **Open** [`BOOTSTRAP-PROMPT.md`](BOOTSTRAP-PROMPT.md) and **copy the entire fenced block** inside it.
+3. **Paste that block as your first message** to Claude in the project.
+4. **Let it run.** It will, in order:
+   - clone this kit to `~/claude-operating-kit` (or `git pull` if already present);
+   - read `docs/claude/operating-principles.md` and adopt the operating method;
+   - install the method docs (`operating-principles`, `vigilance-protocol`,
+     `multi-model-collaboration`, `field-notes`) and the `.claude/agents/` templates into your repo;
+   - explore your codebase and draft a project-specific `CLAUDE.md` from the template;
+   - seed your project's Claude memory dir with the portable `memory-seeds/`.
+5. **Confirm the specifics.** It pauses and shows you what it filled in + open questions — correct
+   the stack/commands/decisions before it does any real work. Nothing else is needed but the
+   prompt block and an internet connection.
+
+> The only prerequisite is `git` (for the self-clone). If `git` isn't available, the prompt has a
+> tarball/degit fallback baked in.
+
+## Manual path (if you'd rather copy by hand)
+
+Copy `CLAUDE.md` + everything under `docs/claude/` into the new repo, fill the `{{PLACEHOLDERS}}`,
+copy `.claude/agents/*` into the project's `.claude/agents/`, and copy `memory-seeds/*` into the
+project's Claude memory directory (the bootstrap prompt explains where that is). Then fill each
+agent template's `{{placeholders}}` with the project's real commands and state doc.
 
 ## The one-line philosophy
 
