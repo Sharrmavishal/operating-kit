@@ -20,6 +20,7 @@ adopt it and grow its own specifics on top.
 | `docs/claude/vigilance-protocol.md` | The 12-rule operational checklist for touching code (the *how* behind the gates). | `docs/claude/` |
 | `docs/claude/multi-model-collaboration.md` | Controller + investigator pattern for driving a second model safely (findings template + approval gate). | `docs/claude/` |
 | `docs/claude/field-notes.md` | Catalog of failure modes that ship *silently* (migrations, gated features, build caches, release pointers): trap → why it's silent → the rule. | `docs/claude/` |
+| `docs/claude/incident-response.md` | The recovery half — when prod breaks: stabilize → confirm recovery point → recover → verify → root-cause → mechanical fix → postmortem. | `docs/claude/` |
 | `.claude/agents/` | Reusable subagent templates — `code-review`, `deploy`, `session-start`, `session-end`, `prod-logs` — with `{{placeholders}}`. | project root → `.claude/agents/` |
 | `memory-seeds/` | Generic, reusable "feedback" memories + an index. | the project's Claude memory dir |
 
@@ -35,7 +36,8 @@ paste it once and Claude fetches the kit, installs it, and adapts it to *your* c
    - clone this kit to `~/claude-operating-kit` (or `git pull` if already present);
    - read `docs/claude/operating-principles.md` and adopt the operating method;
    - install the method docs (`operating-principles`, `vigilance-protocol`,
-     `multi-model-collaboration`, `field-notes`) and the `.claude/agents/` templates into your repo;
+     `multi-model-collaboration`, `field-notes`, `incident-response`) and the `.claude/agents/`
+     templates into your repo;
    - explore your codebase and draft a project-specific `CLAUDE.md` from the template;
    - seed your project's Claude memory dir with the portable `memory-seeds/`.
 5. **Confirm the specifics.** It pauses and shows you what it filled in + open questions — correct

@@ -57,7 +57,8 @@ Add a one-line pointer to `memory-seeds/MEMORY.md` (index = pointers, never cont
 
 **Agent** — every project-specific value is a `{{PLACEHOLDER}}`. Never commit a real path,
 command, host, endpoint, or ID. Keep the *shape* (e.g. the deploy agent's four gates)
-regardless of stack.
+regardless of stack. Scope `tools:` to least privilege — a review/diagnostic agent gets
+read-only tools (no Edit/Write/deploy); an absent tool is a wall, a prompt instruction isn't.
 
 ## Self-check before you open a PR
 

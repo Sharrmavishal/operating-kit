@@ -48,7 +48,9 @@ A gate that lives in a human's head gets skipped; a gate that lives in the code 
 When you catch a near-miss, don't resolve to "be more careful" — encode the check:
 in-script backup confirmation before `--apply`, self-healing invariants, a canary that
 fails loud, a flag that can't be confused with a dry-run. Prefer the mechanical fix to the
-remembered one, every time.
+remembered one, every time. Same logic for delegated work: give each subagent the
+**least-privilege toolset** it needs (a reviewer gets no Edit/Write) — an absent tool is a
+wall; a "please don't edit" instruction is only a request.
 
 ### A6. Milestone gate — no silent "done"
 Before emitting any closure word ("done", "shipped", "verified", "complete", "passes"),
@@ -136,6 +138,9 @@ These take two of the principles above from "what" to "how to do it mid-task":
   that never runs, a gated-off feature whose schema is still live, a build cache serving stale
   artifacts, a release pointer moved ahead of its artifact). Each is `trap → why it's silent →
   the general rule`. Scan it before you deploy, migrate, gate a feature, or trust a build artifact.
+- **`incident-response.md`** — the recovery half: when prod breaks, *stabilize → confirm recovery
+  point → recover → verify → root-cause → mechanical fix → postmortem*, in that order. Read it the
+  moment something's wrong in production — it's where a panicked fix-forward causes incident #2.
 
 The `.claude/agents/` folder ships reusable subagent templates (`code-review`, `deploy`,
 `session-start`, `session-end`, `prod-logs`) that encode A6/A9/A10 as runnable steps — fill the

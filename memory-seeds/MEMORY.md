@@ -17,8 +17,12 @@ memories alongside them as the project teaches you things.
 - [Gate risky work behind review](feedback_gate_risky_work_behind_review.md) — Controller decides by reading code, investigator proposes; anything touching crash paths/data/schema/prod stops for approval first.
 - [A committed migration is not a run migration](feedback_committed_migration_is_not_a_run_migration.md) — Know if your deploy applies migrations or just syncs schema; data migrations often never auto-run. Verify with a live count.
 - [Size-gate your build output](feedback_size_gate_your_build_output.md) — "Build succeeded" ≠ "build is correct"; gate artifact size/shape so a missing bundled file fails loudly, not silently.
+- [Incident response — stabilize first](feedback_incident_response_stabilize_first.md) — Prod broke: stabilize → name recovery point → recover → verify → root-cause → fix the rule. A panicked fix-forward causes incident #2.
+- [Least-privilege subagent tools](feedback_least_privilege_subagent_tools.md) — Scope each agent's tools to the minimum; a reviewer gets no Edit/Write. An absent tool is a wall; a prompt instruction is a request.
+- [Canonical state doc, not memory](feedback_canonical_state_doc_not_memory.md) — One source-of-truth doc for live state; verify against the running system; checkpoint before risky/large work.
+- [Never commit secrets](feedback_never_commit_secrets.md) — Env/.env (gitignored) + .env.example; scan the diff before push. A leaked secret must be rotated, not just deleted.
 
 > Operational companions: `docs/claude/vigilance-protocol.md` (12-rule code-change checklist),
-> `docs/claude/multi-model-collaboration.md` (controller + investigator pattern), and
-> `docs/claude/field-notes.md` (failure modes that ship silently — migrations, gated features,
-> build caches, release pointers).
+> `docs/claude/multi-model-collaboration.md` (controller + investigator pattern),
+> `docs/claude/field-notes.md` (failure modes that ship silently), and
+> `docs/claude/incident-response.md` (the recovery playbook — when prod breaks).

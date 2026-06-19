@@ -37,6 +37,8 @@ confirmation before any write you're unsure about.
      a second model is investigating/implementing)
    - ~/claude-operating-kit/docs/claude/field-notes.md → docs/claude/ (failure modes that ship
      silently — scan before any deploy/migration/feature-gate/build-trust)
+   - ~/claude-operating-kit/docs/claude/incident-response.md → docs/claude/ (the recovery
+     playbook — read the moment prod breaks)
    - ~/claude-operating-kit/.claude/agents/*.md → .claude/agents/ (code-review, deploy,
      session-start, session-end, prod-logs). Leave the {{placeholders}} for now — fill them in
      step 3 once you know this project's commands and state doc, and list any you can't fill as
