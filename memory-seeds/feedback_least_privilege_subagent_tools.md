@@ -1,6 +1,6 @@
 ---
 name: feedback_least_privilege_subagent_tools
-description: Scope every subagent's tools to the minimum it needs — a reviewer gets no Edit/Write, a log-checker gets no deploy. Restrict by structure, not by hoping the prompt holds.
+description: Scope every subagent's tools to the minimum it needs: a reviewer gets no Edit/Write, a log-checker gets no deploy. Restrict by structure, not by hoping the prompt holds.
 metadata:
   type: feedback
 ---
@@ -13,7 +13,7 @@ Edit/Write/deploy. A diagnostic agent should not be able to mutate state. Restri
 **Why:** A prompt instruction not to do something is a request; an absent tool is a wall. If a
 read-only agent *can* write, one confused step (or a prompt-injection from page/log content it
 reads) can mutate state it was never meant to touch. Structural limits make the unsafe action
-impossible, not merely discouraged — the same "make safety mechanical" principle as in-code
+impossible, not merely discouraged, the same "make safety mechanical" principle as in-code
 gates.
 
 **How to apply:** When defining any subagent, list only the tools its job requires, and

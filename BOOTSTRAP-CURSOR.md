@@ -1,4 +1,4 @@
-# Bootstrap prompt — Cursor
+# Bootstrap prompt: Cursor
 
 The Cursor counterpart of `BOOTSTRAP-PROMPT.md`. Self-contained from the GitHub URL. Open your
 project in **Cursor**, open the **Agent** (a mode that can run terminal commands and edit
@@ -24,18 +24,18 @@ for my confirmation before anything you're unsure about.
 
 2. INSTALL the method docs. Copy these into this repo (create dirs as needed):
    - ~/operating-kit/docs/claude/*.md  →  docs/claude/   (operating-principles, vigilance-
-     protocol, multi-model-collaboration, field-notes, incident-response — the tool-neutral
+     protocol, multi-model-collaboration, field-notes, incident-response: the tool-neutral
      playbooks the rules below reference; the folder name is just where they live)
 
 3. INSTALL the Cursor rules. Copy ~/operating-kit/.cursor/rules/*.mdc → .cursor/rules/ :
-   - operating-method.mdc   (alwaysApply: true — the stable method + gates)
-   - code-change.mdc        (auto-attached on code globs — TUNE the globs to this repo's
+   - operating-method.mdc   (alwaysApply: true; the stable method + gates)
+   - code-change.mdc        (auto-attached on code globs; TUNE the globs to this repo's
                              source dirs/extensions)
    - ship-and-recover.mdc   (pulled in for deploys/incidents)
-   - project-context.mdc    (alwaysApply: true — fill it next)
+   - project-context.mdc    (alwaysApply: true; fill it next)
 
 4. FILL project-context.mdc. Explore THIS codebase (README, manifests, dir tree, entry points,
-   test + deploy/CI config) and replace every {{PLACEHOLDER}} with what you actually find —
+   test + deploy/CI config) and replace every {{PLACEHOLDER}} with what you actually find:
    stack, what the project is, build/test/deploy commands, conventions, where secrets live.
    Leave "Locked decisions" and "Open work" empty. Don't invent specifics; list anything
    unclear as a question for me.
@@ -47,7 +47,7 @@ for my confirmation before anything you're unsure about.
    (b) if this Cursor has the Memories feature enabled, add the high-value ones there.
 
 6. NOTE WHAT DEGRADES IN CURSOR (tell me, don't silently drop):
-   - Subagents with restricted tools (.claude/agents/) have no direct Cursor equivalent — the
+   - Subagents with restricted tools (.claude/agents/) have no direct Cursor equivalent. The
      closest is Cursor custom modes, and Cursor can't structurally restrict an agent's tools,
      so "least-privilege tools" weakens from a wall to an instruction. Flag risky ops for my
      approval instead.

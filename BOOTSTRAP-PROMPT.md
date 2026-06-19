@@ -1,9 +1,9 @@
-# Bootstrap prompt — paste into the new project's FIRST Claude session
+# Bootstrap prompt: paste into the new project's FIRST Claude session
 
-Self-contained: you only need this block and the GitHub URL — it clones the kit itself.
+Self-contained: you only need this block and the GitHub URL, and it clones the kit itself.
 Copy everything in the fenced block below into Claude Code, running in the **new project's
 root**. It fetches the portable operating method, installs it, and adapts it to *this*
-codebase. It does not carry any other project's domain context — it builds the project
+codebase. It does not carry any other project's domain context; it builds the project
 layer fresh from what it finds here.
 
 ```
@@ -32,29 +32,29 @@ confirmation before any write you're unsure about.
 2. INSTALL the docs + agent templates. Copy these into this repo (create dirs as needed):
    - ~/claude-operating-kit/docs/claude/operating-principles.md → docs/claude/
    - ~/claude-operating-kit/docs/claude/vigilance-protocol.md → docs/claude/ (the 12-rule
-     checklist for touching code — follow it before any non-trivial edit)
+     checklist for touching code; follow it before any non-trivial edit)
    - ~/claude-operating-kit/docs/claude/multi-model-collaboration.md → docs/claude/ (use when
      a second model is investigating/implementing)
    - ~/claude-operating-kit/docs/claude/field-notes.md → docs/claude/ (failure modes that ship
-     silently — scan before any deploy/migration/feature-gate/build-trust)
+     silently; scan before any deploy/migration/feature-gate/build-trust)
    - ~/claude-operating-kit/docs/claude/incident-response.md → docs/claude/ (the recovery
-     playbook — read the moment prod breaks)
+     playbook; read the moment prod breaks)
    - ~/claude-operating-kit/.claude/agents/*.md → .claude/agents/ (code-review, deploy,
-     session-start, session-end, prod-logs). Leave the {{placeholders}} for now — fill them in
+     session-start, session-end, prod-logs). Leave the {{placeholders}} for now; fill them in
      step 3 once you know this project's commands and state doc, and list any you can't fill as
      a question for me.
 
 3. DRAFT this project's CLAUDE.md. Use ~/claude-operating-kit/CLAUDE.md as the template.
    Explore THIS codebase first (read the README, package/manifest files, the dir tree,
    the main entry points, the test setup, any deploy/CI config) and fill every
-   {{PLACEHOLDER}} from what you actually find here — stack, what the project is, build/
+   {{PLACEHOLDER}} from what you actually find here: stack, what the project is, build/
    test/deploy commands, coding conventions, where secrets live. Leave "Locked decisions"
    and "Open work" empty for now. Do NOT invent specifics; if something's unclear, list it
    as a question for me rather than guessing. Write it to ./CLAUDE.md and show me a summary
    of what you filled in + your open questions.
 
 4. SEED the memory. Write each file in ~/claude-operating-kit/memory-seeds/ into this
-   project's Claude memory directory (the same directory your MEMORY.md lives in — it's
+   project's Claude memory directory (the same directory your MEMORY.md lives in; it's
    referenced in your session context). Merge the seed MEMORY.md index lines into the
    existing MEMORY.md (don't overwrite anything already there). These are the portable
    method-memories; project-specific memories will accumulate alongside them over time.
@@ -70,7 +70,7 @@ specific to some other codebase, stop and re-derive it from this one.
 
 ---
 
-## After bootstrap — how the project layer grows
+## After bootstrap: how the project layer grows
 - New durable lesson learned the hard way → write a `feedback` memory (with **Why** +
   **How to apply**) and add a one-line pointer to MEMORY.md.
 - A settled architecture call → add it to CLAUDE.md "Locked decisions".

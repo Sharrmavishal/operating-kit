@@ -6,7 +6,7 @@ metadata:
 ---
 
 Treat every output as guilty until you've checked the mechanism behind it. A count, a
-"0 results", a "succeeded" — none are findings on their own. Test the *path that produces
+"0 results", a "succeeded": none are findings on their own. Test the *path that produces
 the value* before you act on the value.
 
 **Why:** This single rule reverses more wrong conclusions than any other. Examples of the

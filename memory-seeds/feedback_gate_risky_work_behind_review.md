@@ -8,7 +8,7 @@ metadata:
 When more than one AI tool is in play, keep the roles clean: the **controller** holds the decision
 and reviews by reading the actual code; the **investigator/implementer** explores and proposes in
 its own context. **Gate:** any fix touching crash paths, data deletion, DB schema, auth, billing,
-or production state requires controller approval *before* code is written — investigate → summarize
+or production state requires controller approval *before* code is written: investigate → summarize
 root cause + options → wait. Direct low-risk fixes with exact code; direct high-risk ones with
 broad direction + explicit constraints, and review the output before it ships.
 

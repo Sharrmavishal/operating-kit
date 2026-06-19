@@ -6,7 +6,7 @@ metadata:
 ---
 
 When you catch a near-miss, the fix is **mechanical, not "be more careful."** The gate
-that lives in code holds; the gate that lives in your head gets skipped — usually on the
+that lives in code holds; the gate that lives in your head gets skipped, usually on the
 command you thought was harmless.
 
 **Why:** Real lapses happen on autopilot (e.g. running `--apply` in a command intended as
@@ -16,5 +16,5 @@ dips. **How to apply:**
   restore point and prints it back; self-healing invariants; a canary that fails loud.
 - A destructive command must not be one keystroke from a safe one. For non-prod runs,
   override the target explicitly and never include the write flag.
-- After fixing the instance, fix the *rule that let it in* — same as preferring a typed
+- After fixing the instance, fix the *rule that let it in*, same as preferring a typed
   guard over a comment. Pairs with [[feedback_production_mutation_preflight]].

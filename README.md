@@ -1,16 +1,16 @@
-# Claude Operating Kit
+# The Operating Kit
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A portable, project-agnostic distillation of a disciplined "builder + strategic-vetting
 partner" operating mode (the **persona**) and a critical-thinking / reframe-first
-working style (the **OOB — out-of-box — approach**). It carries the *method*, not any
+working style (the **OOB**, or out-of-box, approach). It carries the *method*, not any
 one project's domain context. Drop it into a new project and let that project's assistant
 (Claude Code or Cursor) adopt it and grow its own specifics on top.
 
-**Works with:** Claude Code (native) and Cursor (via the adapter — see [Using it with Cursor](#using-it-with-cursor)).
+**Works with:** Claude Code (native) and Cursor (via the adapter; see [Using it with Cursor](#using-it-with-cursor)).
 
-**Usage:** paste into your assistant and let it self-install — *“Clone https://github.com/Sharrmavishal/operating-kit and install it per its BOOTSTRAP-PROMPT.md (Claude Code) or BOOTSTRAP-CURSOR.md (Cursor), adapting to this repo.”*
+**Usage:** paste into your assistant and let it self-install: *“Clone https://github.com/Sharrmavishal/operating-kit and install it per its BOOTSTRAP-PROMPT.md (Claude Code) or BOOTSTRAP-CURSOR.md (Cursor), adapting to this repo.”*
 
 ## What's in here
 
@@ -22,14 +22,14 @@ one project's domain context. Drop it into a new project and let that project's 
 | `docs/claude/vigilance-protocol.md` | The 12-rule operational checklist for touching code (the *how* behind the gates). | `docs/claude/` |
 | `docs/claude/multi-model-collaboration.md` | Controller + investigator pattern for driving a second model safely (findings template + approval gate). | `docs/claude/` |
 | `docs/claude/field-notes.md` | Catalog of failure modes that ship *silently* (migrations, gated features, build caches, release pointers): trap → why it's silent → the rule. | `docs/claude/` |
-| `docs/claude/incident-response.md` | The recovery half — when prod breaks: stabilize → confirm recovery point → recover → verify → root-cause → mechanical fix → postmortem. | `docs/claude/` |
-| `.claude/agents/` | Reusable subagent templates — `code-review`, `deploy`, `session-start`, `session-end`, `prod-logs` — with `{{placeholders}}`. | project root → `.claude/agents/` |
-| `.cursor/rules/` | Cursor adapter — `operating-method` + `project-context` (always-on), `code-change` (auto-attached), `ship-and-recover` (`.mdc` rules). | project root → `.cursor/rules/` |
-| `BOOTSTRAP-CURSOR.md` | Cursor counterpart of the bootstrap — paste into the Cursor Agent. | (paste, don't copy) |
+| `docs/claude/incident-response.md` | The recovery half, when prod breaks: stabilize → confirm recovery point → recover → verify → root-cause → mechanical fix → postmortem. | `docs/claude/` |
+| `.claude/agents/` | Reusable subagent templates (`code-review`, `deploy`, `session-start`, `session-end`, `prod-logs`) with `{{placeholders}}`. | project root → `.claude/agents/` |
+| `.cursor/rules/` | Cursor adapter: `operating-method` + `project-context` (always-on), `code-change` (auto-attached), `ship-and-recover` (`.mdc` rules). | project root → `.cursor/rules/` |
+| `BOOTSTRAP-CURSOR.md` | Cursor counterpart of the bootstrap; paste into the Cursor Agent. | (paste, don't copy) |
 | `docs/cursor-adapter.md` | The Claude Code ↔ Cursor mapping + what changes/degrades. | `docs/` |
 | `memory-seeds/` | Generic, reusable "feedback" memories + an index. | the project's Claude memory dir |
 
-## Quick start (bootstrap — recommended)
+## Quick start (bootstrap, recommended)
 
 You don't clone or copy anything by hand. The `BOOTSTRAP-PROMPT.md` block is self-installing:
 paste it once and Claude fetches the kit, installs it, and adapts it to *your* codebase.
@@ -45,7 +45,7 @@ paste it once and Claude fetches the kit, installs it, and adapts it to *your* c
      templates into your repo;
    - explore your codebase and draft a project-specific `CLAUDE.md` from the template;
    - seed your project's Claude memory dir with the portable `memory-seeds/`.
-5. **Confirm the specifics.** It pauses and shows you what it filled in + open questions — correct
+5. **Confirm the specifics.** It pauses and shows you what it filled in + open questions. Correct
    the stack/commands/decisions before it does any real work. Nothing else is needed but the
    prompt block and an internet connection.
 
@@ -67,7 +67,7 @@ or copy `docs/claude/*` + `.cursor/rules/*` in by hand. The kit ships ready-to-u
 `.cursor/rules/*.mdc` (`operating-method` + `project-context` always-on, `code-change`
 auto-attached, `ship-and-recover` on demand) that reference the same playbooks via `@path`.
 
-You keep ~90% — persona, OOB, vigilance, field notes, incident response, the gates — applied
+You keep ~90% (persona, OOB, vigilance, field notes, incident response, the gates), applied
 automatically. Two things degrade: Cursor can't *structurally* restrict a delegated agent's tools
 (so least-privilege weakens from a wall to an instruction), and automatic memory recall becomes a
 rule. Full mapping + caveats: [`docs/cursor-adapter.md`](docs/cursor-adapter.md).
@@ -80,11 +80,10 @@ options in the same breath as the blocker.
 
 ## Provenance & license
 
-Distilled from real production work — each rule, trap, and gate earned by a failure that
+Distilled from real production work: each rule, trap, and gate earned by a failure that
 shipped silently before it became a discipline. It's deliberately project-agnostic: it
 carries the *transferable rule*, never the domain it came from, so it drops into any stack.
 
-Licensed under the [MIT License](LICENSE) — reuse, adapt, and redistribute freely.
-Adding to the kit? See [CONTRIBUTING.md](CONTRIBUTING.md) — keep every addition
+Licensed under the [MIT License](LICENSE): reuse, adapt, and redistribute freely.
+Adding to the kit? See [CONTRIBUTING.md](CONTRIBUTING.md): keep every addition
 project-agnostic and concrete (the two bars), in the `trap → why-silent → rule` shape.
-

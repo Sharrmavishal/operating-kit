@@ -8,11 +8,11 @@ alwaysApply: false
 
 Before any non-trivial edit, follow @docs/claude/vigilance-protocol.md:
 - Re-read the **whole function** before each edit (state from a prior edit invalidates assumptions).
-- Treat any reported bug as a **hypothesis** — read the code and write a verdict before fixing.
-- **3 edits to one file = STOP** — consolidate into one fix and state the invariant it preserves.
+- Treat any reported bug as a **hypothesis**: read the code and write a verdict before fixing.
+- **3 edits to one file = STOP**: consolidate into one fix and state the invariant it preserves.
 - Trace every write to every reader before changing a field's semantics.
 
 Scan @docs/claude/field-notes.md before you deploy, migrate, gate a feature, or trust a build
-artifact — those are the failures that pass every local test and surface in production.
+artifact. Those are the failures that pass every local test and surface in production.
 
 > Tune the `globs` above to this project's actual source directories/extensions.

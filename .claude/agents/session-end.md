@@ -1,6 +1,6 @@
 ---
 name: session-end
-description: Run at the end of every significant work session. Updates the canonical state doc and the memory index with new versions, deployed revisions, known issues, and progress — so the next session starts with correct context. Skips cleanly if nothing significant changed.
+description: Run at the end of every significant work session. Updates the canonical state doc and the memory index with new versions, deployed revisions, known issues, and progress, so the next session starts with correct context. Skips cleanly if nothing significant changed.
 tools: Read, Edit, Bash
 ---
 
@@ -21,27 +21,27 @@ Infer from the conversation (or ask) what actually changed:
 
 ## Steps
 
-### 1 — Read current files
+### 1: Read current files
 ```
 Read: {{STATE_DOC}}
 Read: {{MEMORY_INDEX}}
 ```
 
-### 2 — Identify only what's now stale
+### 2: Identify only what's now stale
 Pinpoint the specific fields that changed this session. Do **not** touch sections that didn't.
 
-### 3 — Update the state doc with targeted edits
+### 3: Update the state doc with targeted edits
 - Current-state / versions table → new revision + version ids.
 - Add or update the relevant work block / known-issues list.
 - **Never replace the whole file.** Targeted edits only.
 
-### 4 — Update the memory index
+### 4: Update the memory index
 - Refresh the "current state" line and any version numbers.
 - If a durable lesson emerged, add a one-line pointer to a new `feedback`/`project` memory
-  (write the memory file too — keep the index to one line per memory).
-- Keep the index short — it's the pointer list, not the record.
+  (write the memory file too, keep the index to one line per memory).
+- Keep the index short; it's the pointer list, not the record.
 
-### 5 — Confirm
+### 5: Confirm
 Report exactly what changed in each file as old → new. Don't summarize the whole file back.
 
 ## Rules

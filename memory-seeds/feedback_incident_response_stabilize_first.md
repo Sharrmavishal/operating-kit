@@ -5,13 +5,13 @@ metadata:
   type: feedback
 ---
 
-When production breaks, follow the order — it's the whole point: **stabilize → confirm
+When production breaks, follow the order (it's the whole point): **stabilize → confirm
 recovery point → recover one change at a time → verify live → root-cause → mechanical fix →
 postmortem.** Stop the bleeding first (revert / disable flag / roll back / take out of
 rotation) *before* diagnosing. State the restore point out loud (which backup, what timestamp,
 verified) before any recovery write. Diagnose only once it's stable.
 
-**Why:** Recovery is where panic causes a *second* incident — a fix-forward under pressure, a
+**Why:** Recovery is where panic causes a *second* incident: a fix-forward under pressure, a
 batch of changes you can't untangle, a "recovery succeeded" that didn't actually restore the
 user-facing behavior. The instinct to fix fast is the trap. A panicked fix to incident #1 is
 the usual cause of incident #2.

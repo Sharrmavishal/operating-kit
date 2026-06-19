@@ -1,7 +1,7 @@
-# Vigilance Protocol — discipline for every non-trivial code change (project-agnostic)
+# Vigilance Protocol: discipline for every non-trivial code change (project-agnostic)
 
 A companion to `operating-principles.md`. Where the operating principles say *how to work*
-and *how to think*, this file is the **operational checklist for touching code** — the
+and *how to think*, this file is the **operational checklist for touching code**: the
 concrete moves that stop a clean intention from shipping a wrong fix.
 
 It was distilled from a real failure: a session that shipped **four incorrect fixes in a
@@ -10,14 +10,14 @@ row** to the same handler, each "correcting" the previous one. The root failure 
 an external reviewer** instead of forming an independent view. The rules below are
 mandatory, not suggestions. Treat them as load-bearing invariants.
 
-> Use this before any non-trivial code change — and *especially* before a 2nd edit to the
+> Use this before any non-trivial code change, and *especially* before a 2nd edit to the
 > same function in one session, any state-machine transition change, or accepting any
 > externally-reported bug.
 
 ---
 
 ### 1. Re-read the entire function before every edit.
-Before changing a function you have already edited this session, re-read it top to bottom —
+Before changing a function you have already edited this session, re-read it top to bottom,
 not just the lines you are changing. State introduced by a previous edit silently
 invalidates assumptions: a variable added two edits ago may now conflict with the check you
 are about to add.
@@ -25,7 +25,7 @@ are about to add.
 ### 2. Enumerate failure causes before writing branching logic.
 Any time you write a `try/catch`, a conditional recovery path, or handle a specific
 DB/queue/HTTP error code (unique-constraint, conflict, type mismatch, 409, etc.), first
-write down — in a comment or the commit message — the **distinct root causes** that can
+write down, in a comment or the commit message, the **distinct root causes** that can
 trigger it. A single error code often has two unrelated causes (e.g. a unique-key violation
 from a concurrent race *vs.* a genuine collision with someone else's row). Treating two
 causes as one is the bug.
@@ -38,7 +38,7 @@ silently when the semantics shift under them.
 
 ### 4. Confident comments are a red flag.
 When you are about to write a comment that starts "This field tracks X" or "We do Y because
-Z" — stop. A comment is a permanent claim; if it is wrong, every future edit inherits the
+Z", stop. A comment is a permanent claim; if it is wrong, every future edit inherits the
 lie. Verify the claim against at least one reader first. If you cannot cite a reader by
 `file:line`, weaken the comment or delete it.
 
@@ -46,7 +46,7 @@ lie. Verify the claim against at least one reader first. If you cannot cite a re
 When any external reviewer (another AI tool, a linter, a teammate, the user) reports a bug:
 - Read the surrounding code **before** deciding the bug is real.
 - Ask: did the reporter have the full context? What did they *not* see?
-- Write a one-line verdict — **real / false positive / needs investigation** — *before*
+- Write a one-line verdict (**real / false positive / needs investigation**) *before*
   writing any fix.
 
 Common false positives that look real out of context: a "leak" in a `finally` block that
@@ -54,7 +54,7 @@ always runs; a "missing null guard" that exists one line above; a "race" in a pa
 already serialized; "missing validation" that a layer above already enforces.
 
 ### 6. Tests that assert buggy behavior are worse than no tests.
-When updating logic, re-read the existing test **assertions** — not just whether they pass.
+When updating logic, re-read the existing test **assertions**, not just whether they pass.
 A green test locks in whatever behavior it asserts. If a test asserts a call that was always
 wrong, green is lying. Before editing a function ask: do the tests assert the behavior I
 *want*, or the behavior that *was*? If the latter, fix the test first.
@@ -65,18 +65,18 @@ If you have edited the same file 3+ times in one session, do not make the next e
 - List every change made to it this session.
 - Identify the **one** root cause the changes are orbiting.
 - Write one consolidating fix instead of a 4th patch.
-- If you cannot state the root cause in one sentence, you do not understand the bug yet —
-  stop coding and investigate.
+- If you cannot state the root cause in one sentence, you do not understand the bug yet.
+  Stop coding and investigate.
 
 ### 8. Cross-identity writes are a stop-and-verify gate.
 Any path that writes or reads a row identified by a field that is **not** the primary
 identity key (a phone lookup when email is the key; an IP lookup when user-id is the key) is
 a potential cross-identity leak. Before shipping, answer explicitly: *"If this non-primary
 field collides with a different person's row, what does my code do?"* If the answer is
-"emails them" or "updates their data," that **is** the bug — fix it now.
+"emails them" or "updates their data," that **is** the bug. Fix it now.
 
 ### 9. External review is a checkpoint, not a substitute for judgment.
-When the user asks "should we have [other model] review this?", the answer is yes — **after**
+When the user asks "should we have [other model] review this?", the answer is yes, **after**
 you have formed your own independent view. Form the view first, then use the review to
 stress-test it. Deferring judgment ("the tool said so") is how wrong fixes ship: the reviewer
 lacks your session context, and you lack their independent angle. Both views must exist
@@ -84,7 +84,7 @@ before merging. (See `multi-model-collaboration.md`.)
 
 ### 10. State the invariant the fix preserves in the commit message.
 For any correctness fix (not a typo or cosmetic refactor), the commit message must state the
-**invariant** the fix preserves — e.g. "email is the authoritative identity key; phone
+**invariant** the fix preserves, e.g. "email is the authoritative identity key; phone
 numbers get reused across people IRL." If you cannot state the invariant in one sentence, you
 are patching a symptom, not the cause.
 

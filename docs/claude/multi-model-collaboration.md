@@ -1,7 +1,7 @@
-# Multi-Model Collaboration — controller + investigator pattern (project-agnostic)
+# Multi-Model Collaboration: controller + investigator pattern (project-agnostic)
 
-A companion to `operating-principles.md`. Many people now drive more than one AI tool at once
-— a primary assistant plus a second model (a CLI agent, an IDE bug-finder, a chat model with
+A companion to `operating-principles.md`. Many people now drive more than one AI tool at once:
+a primary assistant plus a second model (a CLI agent, an IDE bug-finder, a chat model with
 no repo context). This file is the protocol for using them together **without** laundering one
 model's guess into the other's authority.
 
@@ -13,16 +13,16 @@ anything merges. (This is `vigilance-protocol.md` rules 5 and 9, made into a wor
 
 ## Roles
 
-**Controller (the primary assistant — usually the one reading this).**
+**Controller (the primary assistant, usually the one reading this).**
 Holds the decision. Reviews findings by **reading the actual code**, never reactively. Decides
 risk level, approves or rejects, and directs the implementer with either exact code or
 constrained direction. Owns the merge.
 
-**Investigator / implementer (the secondary model — CLI agent, IDE tool, etc.).**
+**Investigator / implementer (the secondary model: CLI agent, IDE tool, etc.).**
 Does the heavy file exploration and option-surfacing in *its own* context (keeping the
 controller's context clean for decisions). Proposes; does not unilaterally ship risky changes.
 
-**Reviewer (a context-free model — a chat model with no repo access).**
+**Reviewer (a context-free model: a chat model with no repo access).**
 Used deliberately as a second opinion on plans and architecture, *after* the controller has
 formed its own view. Stress-tests; does not originate decisions.
 
@@ -56,13 +56,13 @@ Small docs-only or comment-only changes are exempt.
 Loose prose hides the gaps. Require this structure:
 
 - **Root cause:** one-line diagnosis.
-- **Confidence:** high / medium / low — and *why*.
+- **Confidence:** high / medium / low, and *why*.
 - **Code location:** file path + symbol or nearby line.
 - **Files read:** the main files/logs actually inspected.
 - **Relevant excerpt:** the smallest useful snippet.
 - **Options:** A / B / C with trade-offs.
 - **What I couldn't verify:** open gaps, missing logs, assumptions.
-- **Risky?** yes/no — if yes, **stop after analysis and await approval.**
+- **Risky?** yes/no. If yes, **stop after analysis and await approval.**
 
 Rules: separate confirmed findings from hypotheses; say explicitly whether evidence is from
 logs vs. code vs. inference; report multiple issues as distinct findings.
@@ -71,26 +71,26 @@ logs vs. code vs. inference; report multiple issues as distinct findings.
 
 ## When to pull in the context-free reviewer (second opinion)
 
-A reviewer with no repo access has a precise capability **asymmetry** — use it for what it's good
+A reviewer with no repo access has a precise capability **asymmetry**: use it for what it's good
 at, distrust it on what it can't see:
 - **Good at:** spotting an assumption you normalized over a long session, naming a risk you've
   stopped seeing, reframing a "build now vs. wait" call you're anchored on. No sunk-cost, no
   session momentum.
 - **Bad at:** anything requiring repo truth. It will confidently *invent* a constraint, a column,
-  or an API that doesn't exist — because it's reasoning from priors, not your code. Treat every
+  or an API that doesn't exist, because it's reasoning from priors, not your code. Treat every
   concrete claim it makes as a hypothesis to check against the code (vigilance-protocol rule 5),
   never as fact.
 
-So the rule is: pull it in **at decision boundaries, not for fact-finding** — the moments where
+So the rule is: pull it in **at decision boundaries, not for fact-finding**, the moments where
 fresh framing beats local knowledge:
 - a new plan has emerged from an analysis, before you commit build time to it;
 - a significant architectural decision is made (routing, protocol, schema);
 - you've crossed a scale/milestone threshold where old trade-offs deserve re-examination;
 - right after a production incident, on the failure mode, before you commit to a fix.
 
-**Why it works — and the failure it prevents:** the *value* is that the controller has already
+**Why it works, and the failure it prevents:** the *value* is that the controller has already
 formed a view, so the second opinion is a stress-test, not a crutch. The *failure* it guards
-against is the opposite — adopting the reviewer's framing blind, which launds a context-free guess
+against is the opposite: adopting the reviewer's framing blind, which launds a context-free guess
 into a decision. Both directions of that asymmetry matter: take its framing seriously, take its
 facts skeptically.
 

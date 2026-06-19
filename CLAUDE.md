@@ -1,7 +1,7 @@
-# CLAUDE.md — {{PROJECT_NAME}} Project Context
+# CLAUDE.md: {{PROJECT_NAME}} Project Context
 
 Read before every task. Operating method (how I work + how I think) is in
-`docs/claude/operating-principles.md` — that file is stable across projects; this file
+`docs/claude/operating-principles.md`. That file is stable across projects; this file
 holds **this** project's specifics and grows over time.
 
 ---
@@ -17,7 +17,7 @@ Replace this whole block.}}
 ## Tech stack
 {{Languages, frameworks, DB, infra, key services. Note where secrets live and that they
 are never committed. Note any non-obvious build/deploy step (e.g. "run the build locally
-before pushing — CI lint blocks deploys").}}
+before pushing, since CI lint blocks deploys").}}
 
 ---
 
@@ -33,7 +33,7 @@ The load-bearing gates, inline so they're never missed:
   write, answer in the response: Backup / Ownership / Blast-radius / Mechanism-tested-on-
   a-copy / Memory-check. (operating-principles A3.)
 - **Scratch-test destructive ops** on a copy and show the diff before prod. (A4.)
-- **Make safety mechanical** — encode gates in code, don't rely on remembering them. (A5.)
+- **Make safety mechanical:** encode gates in code, don't rely on remembering them. (A5.)
 - **Milestone gate.** Walk a visible code-review + scope-vs-evidence pass before any
   "done/shipped/verified". (A6.)
 - **Verify-don't-infer.** An output is not a finding until you've checked what produced
@@ -45,7 +45,7 @@ The load-bearing gates, inline so they're never missed:
   work gated for approval).
 
 **Reusable subagents** live in `.claude/agents/` (`code-review`, `deploy`, `session-start`,
-`session-end`, `prod-logs`) — fill the `{{placeholders}}` with this project's commands and state
+`session-end`, `prod-logs`). Fill the `{{placeholders}}` with this project's commands and state
 doc before first use.
 
 ---
@@ -77,12 +77,12 @@ with an explicit pass condition. Seed examples:}}
 
 ---
 
-## Locked architectural decisions — do not relitigate
+## Locked architectural decisions: do not relitigate
 {{Index of decisions that are settled. Add as they're made; link to a one-pager for the
 bulky ones. Empty to start.}}
 
 **Rule:** if a new idea conflicts with a decision below (or with a milestone trigger), report it
-as a *deferred option* — do not implement it by default. "Looks ready" is not sufficient; the
+as a *deferred option*; do not implement it by default. "Looks ready" is not sufficient; the
 documented trigger condition must be explicitly met before a settled decision is reversed.
 - _(none yet)_
 

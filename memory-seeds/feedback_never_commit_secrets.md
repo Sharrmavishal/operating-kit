@@ -1,6 +1,6 @@
 ---
 name: feedback_never_commit_secrets
-description: Never commit secrets — keep them in env/.env (gitignored), maintain .env.example, and scan the diff before every push. A leaked secret is leaked even after you delete it.
+description: Never commit secrets: keep them in env/.env (gitignored), maintain .env.example, and scan the diff before every push. A leaked secret is leaked even after you delete it.
 metadata:
   type: feedback
 ---
@@ -10,7 +10,7 @@ logs, committed config, or a public surface. Keep them in environment variables 
 `.env`, maintain a `.env.example` with the *names* (not values), and **scan the diff before
 every push** for anything secret-shaped.
 
-**Why:** A secret pushed to a remote — especially a public one — is compromised the instant
+**Why:** A secret pushed to a remote (especially a public one) is compromised the instant
 it lands, even if you delete it next commit: it's in the history, in clones, in caches, in
 mirrors. Rotation, not deletion, is the only real remedy after a leak. The cheap moment to
 catch it is before the push.
