@@ -14,6 +14,7 @@ memories alongside them as the project teaches you things.
 - [Don't manufacture wait states](feedback_dont_manufacture_wait_states.md): Verify a gate is real before deferring; audit what's doable now.
 - [Re-read & consolidate before patching](feedback_reread_and_consolidate_before_patching.md): Re-read the whole function before each edit; 3 edits to one file = STOP and write one consolidating fix. State the invariant.
 - [Bug reports are hypotheses](feedback_bug_reports_are_hypotheses.md): A reported bug isn't a finding; read the code and write a verdict (real / false positive / investigate) before any fix.
+- [Search before you name it](feedback_search_before_you_name_it.md): Before calling an entity new/a-bug/a-duplicate/a-regression or filing a tracker item, search the tracker (open+closed) and your notes for its name; check created-at before blaming a cause.
 - [Gate risky work behind review](feedback_gate_risky_work_behind_review.md): Controller decides by reading code, investigator proposes; anything touching crash paths/data/schema/prod stops for approval first.
 - [A committed migration is not a run migration](feedback_committed_migration_is_not_a_run_migration.md): Know if your deploy applies migrations or just syncs schema; data migrations often never auto-run. Verify with a live count.
 - [Size-gate your build output](feedback_size_gate_your_build_output.md): "Build succeeded" ≠ "build is correct"; gate artifact size/shape so a missing bundled file fails loudly, not silently.
