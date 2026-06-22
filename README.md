@@ -27,7 +27,7 @@ one project's domain context. Drop it into a new project and let that project's 
 | `.cursor/rules/` | Cursor adapter: `operating-method` + `project-context` (always-on), `code-change` (auto-attached), `ship-and-recover` (`.mdc` rules). | project root → `.cursor/rules/` |
 | `BOOTSTRAP-CURSOR.md` | Cursor counterpart of the bootstrap; paste into the Cursor Agent. | (paste, don't copy) |
 | `docs/cursor-adapter.md` | The Claude Code ↔ Cursor mapping + what changes/degrades. | `docs/` |
-| `memory-seeds/` | Generic, reusable "feedback" memories + an index. | the project's Claude memory dir |
+| `memory-seeds/` | Generic, reusable "feedback" memories. See [`memory-seeds/MEMORY.md`](memory-seeds/MEMORY.md) for the full list. | the project's Claude memory dir |
 
 ## Quick start (bootstrap, recommended)
 
