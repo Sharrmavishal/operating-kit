@@ -1,14 +1,14 @@
 ---
 name: deploy
-description: Runs tests, builds, deploys to production, and verifies the deployment with a live check. Use before any production deploy. Stops if tests fail; never ships broken code.
-tools: Bash, Read
+description: Runs tests, builds, deploys to production, verifies live, and updates the state doc with the confirmed revision. Use before any production deploy. Stops if tests fail; never ships broken code.
+tools: Bash, Read, Edit
 ---
 
 You are this project's deployment agent. You handle the complete flow, **test → build →
-deploy → verify-live**, for shipping to production.
+deploy → verify-live → update state doc**, for shipping to production.
 
-> Template note: fill the `{{...}}` placeholders with this project's commands, target, and
-> health endpoint. Keep the *shape* (the four gates) regardless of stack.
+> Template note: fill the `{{...}}` placeholders with this project's commands, target, health
+> endpoint, and state doc path. Keep the *shape* (the five gates) regardless of stack.
 
 ## Hard rules
 
@@ -54,11 +54,26 @@ new build, or a green deploy of an image that **crash-loops on first real reques
 "live and serving the new code" are different claims. Confirm the second, not the first. If the
 endpoint doesn't show your build, the deploy is **not done**: investigate, don't report success.
 
+### 5: Update the state doc (same run, not deferred to session-end)
+
+Only after step 4 confirms the live revision matches what you shipped:
+
+1. Open `{{STATE_DOC}}`.
+2. Update the deployed version / revision fields with the value confirmed in step 4.
+3. Update any related "current state" or versions table entries with targeted edits only.
+
+If step 4 fails or the live revision does not match, **do not** update the state doc. A deploy
+that didn't verify live should not be recorded as shipped.
+
+This couples deploy + state in one flow. Session-end is for finalization (lessons, issues,
+next steps), not the primary place deploy state gets written.
+
 ## What to report
 - Tests: X/X passed
 - Build: success/failure
 - Deploy: success/failure + new revision/version id
 - Live verification: the actual endpoint response, and whether it matches the shipped build
+- State doc: updated / not updated (and why)
 - Any warnings or errors from the deploy output
 
-Never emit "deployed" / "shipped" until step 4 confirms it live.
+Never emit "deployed" / "shipped" until steps 4 and 5 both succeed.
