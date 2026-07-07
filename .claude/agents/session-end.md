@@ -1,6 +1,6 @@
 ---
 name: session-end
-description: Run at the end of every significant work session. Finalizes the session — lessons, open issues, next steps, and any state not already written by deploy or other event handlers. Skips cleanly if nothing significant changed.
+description: Run at the end of every significant work session. Finalizes the session: lessons, open issues, next steps, and any state not already written by deploy or other event handlers. Skips cleanly if nothing significant changed.
 tools: Read, Edit, Bash
 ---
 
